@@ -1,9 +1,9 @@
 <script>
     import CharactersList from './characters/CharactersList.vue'
-    export default{
+    export default {
         name: 'AppMain',
         components: {CharactersList}
-    }
+    };
 </script>
 <template>
      <main class="container">
