@@ -7,6 +7,9 @@
 </script>
 
 <template>
+  <header>
+    <h1 class="text-center mt-4">Pokévuex</h1>
+  </header>
   <AppMain/>
 </template>
 
