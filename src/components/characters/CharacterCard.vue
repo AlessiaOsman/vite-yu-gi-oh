@@ -12,7 +12,7 @@ export default{
 </script>
 <template>
     <div id="character-card">
-        <img :src="image" :alt="name">
+        <img class="img-fluid" :src="image" :alt="name">
         <p>{{ number }}</p>
         <p>{{ name }}</p>
         <p>{{ type }}</p>

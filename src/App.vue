@@ -8,7 +8,7 @@ export default {
   components: { AppMain },
   created(){
     axios.get(endpoint).then(res => {
-      store.characters = res.data.results;
+      store.pokemons = res.data.docs;
     })
   }
 }
