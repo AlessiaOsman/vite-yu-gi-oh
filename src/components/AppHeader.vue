@@ -1,5 +1,5 @@
 <script>
-import FilterSelect from './selectForm/FilterSelect.vue';
+import FilterSelect from './select/FilterSelect.vue';
 export default {
     name: 'AppHeader',
     components: {FilterSelect}

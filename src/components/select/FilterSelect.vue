@@ -21,17 +21,17 @@ export default{
             "Rock",
             "Steel",
             "Water"
-        ]
+        ],
+
+        typeSelected: ''
     })
 }
 </script>
 
 <template>
-    <select class="form-select mt-4 select-form">
-        <option selected>All</option>
+    <select v-model="typeSelected">
+        <option disabled value="">Please select one</option>
         <option v-for="type in types">{{ type }}</option>
     </select>
+    <p>{{ typeSelected }}</p>
 </template>
-
-
-
