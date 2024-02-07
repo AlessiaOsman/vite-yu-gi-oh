@@ -7,16 +7,41 @@ import AppHeader from './components/AppHeader.vue'
 export default {
   name: 'Pokemon',
   components: { AppMain, AppHeader },
-  created(){
-    axios.get(endpoint).then(res => {
+  methods:{
+    fetchTypes(){
+      axios.get(endpoint + '/types1').then(res => {
+        store.types = res.data.map((type, i) => {
+          return {
+            label: type,
+            value: type,
+            id: i
+          }
+        })
+      })
+    },
+
+    fetchPokemon(){
+      axios.get(endpoint).then(res => {
       store.pokemons = res.data.docs;
     })
-  }
+    },
+
+    filterPokemon(type){
+      const endpoint = type ? `${endpoint}?eq[type1]=${type}` : endpoint;
+      this.fetchPokemon()
+
+    }
+  },
+  
+  created(){
+    this.fetchPokemon();
+    this.fetchTypes();
+  } 
 }
 </script>
 
 <template>
-  <AppHeader/>
+  <AppHeader @type-change="filterPokemon"/>
   <AppMain />
 </template>
 

@@ -1,37 +1,25 @@
 <script>
-export default{
+export default {
     name: 'FilterSelect',
-    data: ()=>({
-        types: [
-            "Bug",
-            "Dark",
-            "Dragon",
-            "Electric",
-            "Fairy",
-            "Fighting",
-            "Fire",
-            "Flying",
-            "Ghost",
-            "Grass",
-            "Ground",
-            "Ice",
-            "Normal",
-            "Poison",
-            "Psychic",
-            "Rock",
-            "Steel",
-            "Water"
-        ],
+    data: () => ({
+    
+        selectedOption: ''
+    }),
 
-        typeSelected: ''
-    })
+    props: {
+        defaultValue: String,
+        defaultLabel: String,
+        options: Array
+    },
+
+    emits: ['option-change']
 }
+
 </script>
 
 <template>
-    <select v-model="typeSelected">
-        <option disabled value="">Please select one</option>
-        <option v-for="type in types">{{ type }}</option>
+    <select v-model="selectedOption" @change="$emit('option-change', selectedOption)">
+        <option :value="defaultValue || ''">{{ defaultLabel || '---' }}</option>
+        <option v-for="(option, i) in options" :key="option.id" :value="option.value">{{ option.label }}</option>
     </select>
-    <p>{{ typeSelected }}</p>
 </template>
